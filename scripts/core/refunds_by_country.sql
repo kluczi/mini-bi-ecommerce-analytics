@@ -9,13 +9,13 @@ with ecommerce_parsed as (
 
 select
     country as country,
-    sum(quantity) as refunds,
-    sum(unit_price) as units_price
+    count(quantity) as refunds,
+    sum(quantity*unit_price) as losses
 from ecommerce_parsed
 where
     quantity<0
     and description = upper(description)
     and description != lower(description)
     and description is not null
-group by country
-order by refunds ASC;
+group by 1
+order by 2 DESC;
