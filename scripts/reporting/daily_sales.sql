@@ -4,7 +4,6 @@ with ecommerce_parsed as (
         quantity,
         unit_price,
         coalesce(
-            try_strptime(invoice_date_raw, '%m/%d/%Y %H:%M:%S'),
             try_strptime(invoice_date_raw, '%m/%d/%Y %H:%M')
         )::timestamp as invoice_ts
     from staging.ecommerce
