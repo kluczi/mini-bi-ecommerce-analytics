@@ -4,7 +4,7 @@ select
     "Description"   as description,
     "Quantity"::int as quantity,
     "InvoiceDate"   as invoice_date_raw,
-    "UnitPrice"::double as unit_price,
+    "UnitPrice"::float as unit_price,
     "CustomerID"    as customer_id,
     "Country"       as country
 from read_csv(
