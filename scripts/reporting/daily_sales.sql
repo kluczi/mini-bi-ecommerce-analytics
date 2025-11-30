@@ -6,7 +6,7 @@ with ecommerce_parsed as (
         coalesce(
             try_strptime(invoice_date_raw, '%m/%d/%Y %H:%M')
         )::timestamp as invoice_ts
-    from staging.ecommerce
+    from staging.stg_ecommerce
 )
 
 select

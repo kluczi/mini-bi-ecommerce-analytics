@@ -6,7 +6,7 @@ with ecommerce_parsed as (
         quantity,
         unit_price,
         description
-    from staging.ecommerce
+    from staging.stg_ecommerce
 )
 select
     extract(month from invoice_ts) as month,
