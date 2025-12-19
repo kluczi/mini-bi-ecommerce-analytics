@@ -1,21 +1,14 @@
-with ecommerce_parsed as (
-    select
-        country,
-        quantity,
-        unit_price,
-        description
-    from staging.stg_ecommerce
-)
-
 select
-    country as country,
-    count(quantity) as refunds,
-    sum(quantity*unit_price) as losses
-from ecommerce_parsed
+    dc.country as country,
+    count(fct.quantity) as refunds,
+    sum(fct.quantity*fct.unit_price) as losses
+from intermediate.fct_ecommerce fct
+LEFT JOIN intermediate.dim_customer dc ON fct.customer_sk=dc.customer_sk
+LEFT JOIN intermediate.dim_product dp ON fct.product_sk=dp.product_sk
 where
-    quantity<0
-    and description = upper(description)
-    and description != lower(description)
-    and description is not null
+    fct.quantity<0
+    and dp.description = upper(dp.description)
+    and dp.description != lower(dp.description)
+    and dp.description is not null
 group by 1
 order by 2 DESC;
