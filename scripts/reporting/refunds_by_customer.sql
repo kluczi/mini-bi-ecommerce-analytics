@@ -6,6 +6,7 @@ with ecommerce_parsed as (
         description
     from staging.stg_ecommerce
 )
+
 select
     customer_id as customer_id,
     sum(quantity) as refunds,
