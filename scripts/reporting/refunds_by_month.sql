@@ -1,5 +1,5 @@
 select
-    extract(month from di.invoice_ts) as month,
+    date_trunc('month', invoice_ts) as month,
     count(fct.quantity) as refunds,
     sum(fct.quantity*fct.unit_price) as losses
 from intermediate.fct_ecommerce fct
@@ -11,6 +11,6 @@ where
     and dp.description != lower(dp.description)
     and dp.description is not null
 group by month
-order by 2 ASC, 1 ASC;
+order by 2 ASC;
 
 
