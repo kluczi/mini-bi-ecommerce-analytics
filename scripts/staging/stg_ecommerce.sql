@@ -1,13 +1,13 @@
-select
-    "InvoiceNo"      as invoice_no,
-    "StockCode"      as stock_code,
-    "Description"   as description,
-    "Quantity"::int as quantity,
-    "InvoiceDate"   as invoice_date_raw,
-    "UnitPrice"::float as unit_price,
-    "CustomerID"    as customer_id,
-    "Country"       as country
-from read_csv(
+SELECT
+    "InvoiceNo" AS invoice_no,
+    "StockCode" AS stock_code,
+    "Description" AS description,
+    "Quantity"::int AS quantity,
+    "InvoiceDate" AS invoice_date_raw,
+    "UnitPrice"::float AS unit_price,
+    "CustomerID" AS customer_id,
+    "Country" AS country
+FROM read_csv(
     'data/ecommerce.csv',
     header = true,
     ignore_errors = true
