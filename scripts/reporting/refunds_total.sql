@@ -1,5 +1,6 @@
 SELECT
-    count(fct.quantity) as refunds
+    count(fct.quantity) as refunds,
+    sum(fct.quantity*fct.unit_price) as losses
 FROM intermediate.fct_ecommerce fct
 LEFT JOIN intermediate.dim_product dp ON fct.product_sk=dp.product_sk
 WHERE
