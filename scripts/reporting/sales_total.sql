@@ -1,3 +1,3 @@
 SELECT
-    count(*) as total_sales
+    COUNT(*) AS total_sales
 FROM intermediate.fct_ecommerce fct

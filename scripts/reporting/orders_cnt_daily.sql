@@ -1,7 +1,7 @@
 SELECT
-    date_trunc('day', invoice_ts) as day,
-    extract(YEAR FROM day) as year,
-    count(distinct invoice_no) as orders_cnt
+    DATE_TRUNC('day', invoice_ts) AS day,
+    EXTRACT(YEAR FROM day) AS year,
+    COUNT(DISTINCT invoice_no) AS orders_cnt
 FROM intermediate.dim_invoice
 GROUP BY 1
 ORDER BY 1 ASC

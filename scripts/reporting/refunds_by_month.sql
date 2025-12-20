@@ -1,16 +1,16 @@
-select
-    date_trunc('month', invoice_ts) as month,
-    count(fct.quantity) as refunds,
-    sum(fct.quantity*fct.unit_price) as losses
-from intermediate.fct_ecommerce fct
+SELECT
+    DATE_TRUNC('month', invoice_ts) AS month,
+    COUNT(fct.quantity) AS refunds,
+    SUM(fct.quantity*fct.unit_price) AS losses
+FROM intermediate.fct_ecommerce fct
 LEFT JOIN intermediate.dim_invoice di ON fct.invoice_sk=di.invoice_sk
 LEFT JOIN intermediate.dim_product dp ON fct.product_sk=dp.product_sk
-where
+WHERE
     fct.quantity<0
-    and dp.description = upper(dp.description)
-    and dp.description != lower(dp.description)
-    and dp.description is not null
-group by month
-order by 2 ASC;
+    AND dp.description = UPPER(dp.description)
+    AND dp.description != LOWER(dp.description)
+    AND dp.description IS NOT NULL
+GROUP BY month
+ORDER BY 2 ASC;
 
 
