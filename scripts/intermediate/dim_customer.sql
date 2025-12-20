@@ -1,6 +1,6 @@
-select distinct
-    md5(trim(cast(customer_id as varchar))) as customer_sk,
+SELECT DISTINCT
+    MD5(TRIM(CAST(customer_id AS VARCHAR))) AS customer_sk,
     customer_id,
     country
-from staging.stg_ecommerce
-where customer_id is not null;
+FROM staging.stg_ecommerce
+WHERE customer_id IS NOT NULL;
