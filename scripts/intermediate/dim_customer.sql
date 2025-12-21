@@ -3,4 +3,4 @@ SELECT DISTINCT
     customer_id,
     country
 FROM staging.stg_ecommerce
-WHERE customer_id IS NOT NULL;
+WHERE customer_id IS NOT NULL

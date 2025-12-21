@@ -4,4 +4,4 @@ SELECT DISTINCT
     description
 FROM staging.stg_ecommerce
 WHERE
-    description IS NOT NULL; -- need business clarification
+    description IS NOT NULL -- need business clarification
