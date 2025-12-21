@@ -31,9 +31,13 @@ mini-bi-ecommerce-analytics/
 
 ## Installation & run
 
+```bash
 git clone https://github.com/kluczi/mini-bi-ecommerce-analytics
+```
 
+```bash
 cd mini-bi-ecommerce-analytics/
+```
 
 After installation, the pipeline can be run using:
 
