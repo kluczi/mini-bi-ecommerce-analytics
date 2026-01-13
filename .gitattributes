@@ -1,0 +1,5 @@
+*.sql linguist-language=PLpgSQL
+*.sql linguist-detectable=true
+*.duckdb linguist-vendored
+*.parquet linguist-vendored
+*.csv linguist-vendored
